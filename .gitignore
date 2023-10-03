@@ -1,0 +1,5 @@
+benchmark-results/
+results-cluster-enum/
+results-cluster-agg/
+.ipynb_checkpoints/
+__pycache__
