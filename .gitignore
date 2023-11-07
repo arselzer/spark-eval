@@ -8,3 +8,4 @@ lsqb/data
 tpcds-kit/tools/*.dat
 snap/cit-Patents.txt
 snap/noheader/cit-Patents.txt
+tmp/

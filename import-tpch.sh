@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SF=11
+SF=50
 
 PGPASSWORD=tpch psql -U tpch -f tpch-drop.sql
 
