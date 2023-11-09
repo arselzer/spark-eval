@@ -1,0 +1,11 @@
+benchmark-results/
+results-cluster-enum/
+results-cluster-agg/
+.ipynb_checkpoints/
+__pycache__
+*.dat
+lsqb/data/*
+tpcds-kit/tools/*.dat
+snap/cit-Patents.txt
+snap/noheader/cit-Patents.txt
+tmp/

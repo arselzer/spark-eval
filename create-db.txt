@@ -1,3 +1,0 @@
-create user snap with password 'snap';
-create database snap;
-grant all privileges on database snap to snap;

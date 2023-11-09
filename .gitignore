@@ -1,11 +1,2 @@
-benchmark-results/
-results-cluster-enum/
-results-cluster-agg/
-.ipynb_checkpoints/
-__pycache__
-*.dat
-lsqb/data
-tpcds-kit/tools/*.dat
-snap/cit-Patents.txt
-snap/noheader/cit-Patents.txt
-tmp/
+postgres-data
+benchmark/pyspark-3.5.0.dev0.tar.gz
