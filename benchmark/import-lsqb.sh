@@ -1,6 +1,5 @@
 #!/bin/bash
 
-SF=1
 DATADIR=$(pwd)/lsqb/data/social-network-sf${SF}-merged-fk
 
 PGPASSWORD=lsqb psql -h postgres -U lsqb -d lsqb -f lsqb/sql/drop.sql
