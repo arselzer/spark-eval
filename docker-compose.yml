@@ -18,6 +18,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8888:8888"
+      - "4040:4040"
+      - "4041-4050:4041-4050"
     volumes:
       - ./benchmark:/benchmark
     networks:
