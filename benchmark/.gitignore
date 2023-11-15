@@ -6,6 +6,8 @@ __pycache__
 *.dat
 lsqb/data/*
 tpcds-kit/tools/*.dat
-snap/cit-Patents.txt
-snap/noheader/cit-Patents.txt
+snap/*.txt
+snap/*.gz
+snap/noheader/*.txt
 tmp/
+benchmark-results-*
