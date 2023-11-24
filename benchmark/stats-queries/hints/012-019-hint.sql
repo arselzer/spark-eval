@@ -1,0 +1,1 @@
+SELECT /*+ FK(pl.PostId, p.Id),FK(pl.RelatedPostId, p.Id),FK(p.OwnerUserId, u.Id) */  COUNT(*) FROM posts as p, postLinks as pl, users as u WHERE p.Id = pl.PostId AND p.OwnerUserId = u.Id AND p.CommentCount<=17 AND u.CreationDate<=CAST('2014-09-12 07:12:16' AS TIMESTAMP);
