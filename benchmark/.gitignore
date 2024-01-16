@@ -11,3 +11,4 @@ snap/*.gz
 snap/noheader/*.txt
 tmp/
 benchmark-results-*
+job/export*
