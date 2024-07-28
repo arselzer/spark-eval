@@ -1,0 +1,1 @@
+MATCH (n1:Dblp)-[:CONNECTED]->(n2:Dblp)-[:CONNECTED]->(n3:Dblp)-[:CONNECTED]->(n4:Dblp)-[:CONNECTED]->(n5:Dblp)-[:CONNECTED]->(n6:Dblp)-[:CONNECTED]->(n7:Dblp) RETURN count(*)

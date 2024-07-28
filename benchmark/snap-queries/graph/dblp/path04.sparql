@@ -1,0 +1,9 @@
+PREFIX n4sch: <neo4j://graph.schema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+select (count(*) as ?count) where {
+    ?n1 n4sch:CONNECTED ?n2 .
+    ?n2 n4sch:CONNECTED ?n3 .
+    ?n3 n4sch:CONNECTED ?n4 .
+    ?n4 n4sch:CONNECTED ?n5 .
+    ?n5 n4sch:CONNECTED ?n6
+} limit 100

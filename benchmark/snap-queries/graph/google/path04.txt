@@ -1,0 +1,1 @@
+MATCH (n1:Google)-[:CONNECTED]->(n2:Google)-[:CONNECTED]->(n3:Google)-[:CONNECTED]->(n4:Google)-[:CONNECTED]->(n5:Google)-[:CONNECTED]->(n6:Google) RETURN count(*)
