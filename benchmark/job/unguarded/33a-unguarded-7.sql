@@ -4,8 +4,8 @@ SELECT MIN(cn1.name) AS first_company,
        MIN(mi_idx2.info) AS second_rating,
        MIN(t1.title) AS first_movie,
        MIN(t2.title) AS second_movie,
-       cn1.phonetic_code,
-       cn2.phonetic_code,
+       cn1.name_pcode_nf,
+       cn2.name_pcode_nf,
        it1.info,
        it2.info,
        kt1.kind,
@@ -54,4 +54,4 @@ WHERE cn1.country_code = '[us]'
   AND ml.linked_movie_id = mi_idx2.movie_id
   AND ml.linked_movie_id = mc2.movie_id
   AND mi_idx2.movie_id = mc2.movie_id
-GROUP BY cn1.phonetic_code, cn2.phonetic_code, it1.info, it2.info, kt1.kind, kt2.kind, lt.link;
+GROUP BY cn1.name_pcode_nf, cn2.name_pcode_nf, it1.info, it2.info, kt1.kind, kt2.kind, lt.link;
