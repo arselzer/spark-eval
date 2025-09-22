@@ -3,7 +3,7 @@ SELECT MIN(cn.name) AS movie_company,
        MIN(t.title) AS complete_euro_dark_movie,
        cc.id,
        cct1.kind,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it1.info,
        it2.info,
@@ -70,4 +70,4 @@ WHERE cct1.kind = 'crew'
   AND cn.id = mc.company_id
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
-GROUP BY cc.id, cct1.kind, cn.phonetic_code, ct.kind, it1.info, it2.info, k.phonetic_code;
+GROUP BY cc.id, cct1.kind, cn.name_pcode_nf, ct.kind, it1.info, it2.info, k.phonetic_code;

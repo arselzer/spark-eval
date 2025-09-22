@@ -1,7 +1,7 @@
 SELECT MIN(mi.info) AS release_date,
        MIN(miidx.info) AS rating,
        MIN(t.title) AS german_movie,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it.info,
        it2.info,
@@ -33,4 +33,4 @@ WHERE cn.country_code ='[de]'
   AND mi.movie_id = miidx.movie_id
   AND mi.movie_id = mc.movie_id
   AND miidx.movie_id = mc.movie_id
-GROUP BY cn.phonetic_code, ct.kind, it.info, it2.info, kt.kind, mc.id, mi.id;
+GROUP BY cn.name_pcode_nf, ct.kind, it.info, it2.info, kt.kind, mc.id, mi.id;

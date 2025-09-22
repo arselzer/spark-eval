@@ -1,12 +1,12 @@
 SELECT MIN(mi.info) AS release_date,
        MIN(miidx.info) AS rating,
        MIN(t.title) AS german_movie,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_info.id,
-       title.imdb_index,
-       title.phonetic_code
+       cn.name_pcode_nf,
+       ct.id,
+       it.id,
+       it2.id,
+       kt.id,
+       mc.id
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it,
@@ -32,9 +32,4 @@ WHERE cn.country_code ='[de]'
   AND mi.movie_id = miidx.movie_id
   AND mi.movie_id = mc.movie_id
   AND miidx.movie_id = mc.movie_id
-GROUP BY company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_info.id,
-         title.imdb_index,
-         title.phonetic_code;
+GROUP BY cn.name_pcode_nf, ct.id, it.id, it2.id, kt.id, mc.id;

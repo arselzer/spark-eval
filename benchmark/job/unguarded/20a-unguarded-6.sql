@@ -1,10 +1,10 @@
 SELECT MIN(t.title) AS complete_downey_ironman_movie,
-       complete_cast.id,
-       char_name.id,
-       cast_info.id,
-       movie_keyword.id,
-       name.imdb_index,
-       title.imdb_index
+       cc.id,
+       cct1.id,
+       cct2.id,
+       chn.name_pcode_nf,
+       ci.id,
+       k.phonetic_code
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -42,9 +42,4 @@ WHERE cct1.kind = 'cast'
   AND k.id = mk.keyword_id
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
-GROUP BY complete_cast.id,
-         char_name.id,
-         cast_info.id,
-         movie_keyword.id,
-         name.imdb_index,
-         title.imdb_index;
+GROUP BY cc.id, cct1.id, cct2.id, chn.name_pcode_nf, ci.id, k.phonetic_code;

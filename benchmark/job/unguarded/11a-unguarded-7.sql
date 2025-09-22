@@ -1,7 +1,7 @@
 SELECT MIN(cn.name) AS from_company,
        MIN(lt.link) AS movie_link_type,
        MIN(t.title) AS non_polish_sequel_movie,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        k.phonetic_code,
        mc.id,
@@ -34,4 +34,4 @@ WHERE cn.country_code !='[pl]'
   AND ml.movie_id = mk.movie_id
   AND ml.movie_id = mc.movie_id
   AND mk.movie_id = mc.movie_id
-GROUP BY cn.phonetic_code, ct.kind, k.phonetic_code, mc.id, mk.id, ml.id, t.md5sum;
+GROUP BY cn.name_pcode_nf, ct.kind, k.phonetic_code, mc.id, mk.id, ml.id, t.md5sum;

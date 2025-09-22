@@ -1,12 +1,12 @@
 SELECT MIN(cn.name) AS company_name,
        MIN(lt.link) AS link_type,
        MIN(t.title) AS western_follow_up,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_keyword.id,
-       movie_link.id,
-       title.imdb_index
+       cn.name_pcode_nf,
+       k.phonetic_code,
+       mc.id,
+       mi.id,
+       mk.id,
+       ml.id
 FROM company_name AS cn,
      company_type AS ct,
      keyword AS k,
@@ -46,9 +46,4 @@ WHERE cn.country_code !='[pl]'
   AND ml.movie_id = mi.movie_id
   AND mk.movie_id = mi.movie_id
   AND mc.movie_id = mi.movie_id
-GROUP BY company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_keyword.id,
-         movie_link.id,
-         title.imdb_index;
+GROUP BY cn.name_pcode_nf, k.phonetic_code, mc.id, mi.id, mk.id, ml.id;

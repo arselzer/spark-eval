@@ -4,7 +4,7 @@ SELECT MIN(cn.name) AS producing_company,
        cc.id,
        cct1.kind,
        cct2.kind,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        k.phonetic_code,
        mc.id
@@ -56,4 +56,4 @@ WHERE cct1.kind IN ('cast',
   AND mk.movie_id = cc.movie_id
   AND mc.movie_id = cc.movie_id
   AND mi.movie_id = cc.movie_id
-GROUP BY cc.id, cct1.kind, cct2.kind, cn.phonetic_code, ct.kind, k.phonetic_code, mc.id;
+GROUP BY cc.id, cct1.kind, cct2.kind, cn.name_pcode_nf, ct.kind, k.phonetic_code, mc.id;

@@ -20,7 +20,7 @@ FROM complete_cast AS cc,
      kind_type AS kt,
      movie_companies AS mc,
      movie_info AS mi,
-     movie_info_idx AS mi_idx,
+     movie_info AS mi_idx,
      movie_keyword AS mk,
      title AS t
 WHERE cct1.kind = 'crew'

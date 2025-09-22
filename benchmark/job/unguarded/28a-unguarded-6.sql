@@ -1,12 +1,12 @@
 SELECT MIN(cn.name) AS movie_company,
        MIN(mi_idx.info) AS rating,
        MIN(t.title) AS complete_euro_dark_movie,
-       complete_cast.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_info.id,
-       movie_keyword.id
+       cc.id,
+       cct1.id,
+       cct2.id,
+       cn.name_pcode_nf,
+       ct.id,
+       it1.id
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -69,9 +69,4 @@ WHERE cct1.kind = 'crew'
   AND cn.id = mc.company_id
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
-GROUP BY complete_cast.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_info.id,
-         movie_keyword.id;
+GROUP BY cc.id, cct1.id, cct2.id, cn.name_pcode_nf, ct.id, it1.id;

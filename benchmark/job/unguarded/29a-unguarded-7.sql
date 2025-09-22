@@ -7,7 +7,7 @@ SELECT MIN(chn.name) AS voiced_char,
        cct2.kind,
        chn.surname_pcode,
        ci.nr_order,
-       cn.phonetic_code
+       cn.name_pcode_nf
 FROM aka_name AS an,
      complete_cast AS cc,
      comp_cast_type AS cct1,
@@ -71,4 +71,4 @@ WHERE cct1.kind ='cast'
   AND k.id = mk.keyword_id
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
-GROUP BY an.name_pcode_cf, cc.id, cct1.kind, cct2.kind, chn.surname_pcode, ci.nr_order, cn.phonetic_code;
+GROUP BY an.name_pcode_cf, cc.id, cct1.kind, cct2.kind, chn.surname_pcode, ci.nr_order, cn.name_pcode_nf;

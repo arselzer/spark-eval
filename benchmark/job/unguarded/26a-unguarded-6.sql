@@ -2,12 +2,12 @@ SELECT MIN(chn.name) AS character_name,
        MIN(mi_idx.info) AS rating,
        MIN(n.name) AS playing_actor,
        MIN(t.title) AS complete_hero_movie,
-       complete_cast.id,
-       char_name.id,
-       cast_info.id,
-       movie_info.id,
-       movie_keyword.id,
-       name.imdb_index
+       cc.id,
+       cct1.id,
+       cct2.id,
+       chn.name_pcode_nf,
+       ci.id,
+       it2.id
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -56,9 +56,4 @@ WHERE cct1.kind = 'cast'
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
   AND it2.id = mi_idx.info_type_id
-GROUP BY complete_cast.id,
-         char_name.id,
-         cast_info.id,
-         movie_info.id,
-         movie_keyword.id,
-         name.imdb_index;
+GROUP BY cc.id, cct1.id, cct2.id, chn.name_pcode_nf, ci.id, it2.id;

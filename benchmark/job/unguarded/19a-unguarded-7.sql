@@ -3,7 +3,7 @@ SELECT MIN(n.name) AS voicing_actress,
        an.name_pcode_cf,
        chn.surname_pcode,
        ci.nr_order,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        it.info,
        mc.id,
        mi.id
@@ -46,4 +46,4 @@ WHERE ci.note IN ('(voice)',
   AND n.id = an.person_id
   AND ci.person_id = an.person_id
   AND chn.id = ci.person_role_id
-GROUP BY an.name_pcode_cf, chn.surname_pcode, ci.nr_order, cn.phonetic_code, it.info, mc.id, mi.id;
+GROUP BY an.name_pcode_cf, chn.surname_pcode, ci.nr_order, cn.name_pcode_nf, it.info, mc.id, mi.id;

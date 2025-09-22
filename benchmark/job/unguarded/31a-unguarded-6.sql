@@ -2,12 +2,12 @@ SELECT MIN(mi.info) AS movie_budget,
        MIN(mi_idx.info) AS movie_votes,
        MIN(n.name) AS writer,
        MIN(t.title) AS violent_liongate_movie,
-       cast_info.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_info.id,
-       movie_keyword.id
+       ci.id,
+       cn.name_pcode_nf,
+       it1.id,
+       it2.id,
+       k.phonetic_code,
+       mc.id
 FROM cast_info AS ci,
      company_name AS cn,
      info_type AS it1,
@@ -57,9 +57,4 @@ WHERE ci.note IN ('(writer)',
   AND it2.id = mi_idx.info_type_id
   AND k.id = mk.keyword_id
   AND cn.id = mc.company_id
-GROUP BY cast_info.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_info.id,
-         movie_keyword.id;
+GROUP BY ci.id, cn.name_pcode_nf, it1.id, it2.id, k.phonetic_code, mc.id;

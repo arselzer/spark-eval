@@ -1,12 +1,12 @@
 SELECT MIN(cn.name) AS movie_company,
        MIN(mi_idx.info) AS rating,
        MIN(t.title) AS western_violent_movie,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_info.id,
-       movie_keyword.id,
-       title.imdb_index
+       cn.name_pcode_nf,
+       ct.id,
+       it1.id,
+       it2.id,
+       k.phonetic_code,
+       kt.id
 FROM company_name AS cn,
      company_type AS ct,
      info_type AS it1,
@@ -51,9 +51,4 @@ WHERE cn.country_code != '[us]'
   AND it2.id = mi_idx.info_type_id
   AND ct.id = mc.company_type_id
   AND cn.id = mc.company_id
-GROUP BY company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_info.id,
-         movie_keyword.id,
-         title.imdb_index;
+GROUP BY cn.name_pcode_nf, ct.id, it1.id, it2.id, k.phonetic_code, kt.id;

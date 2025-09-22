@@ -1,12 +1,12 @@
 SELECT MIN(chn.name) AS voiced_char,
        MIN(n.name) AS voicing_actress,
        MIN(t.title) AS voiced_animation,
-       aka_name.id,
-       complete_cast.id,
-       char_name.id,
-       cast_info.id,
-       company_name.imdb_id,
-       movie_companies.id
+       an.name_pcode_nf,
+       cc.id,
+       cct1.id,
+       cct2.id,
+       chn.name_pcode_nf,
+       ci.id
 FROM aka_name AS an,
      complete_cast AS cc,
      comp_cast_type AS cct1,
@@ -70,9 +70,4 @@ WHERE cct1.kind ='cast'
   AND k.id = mk.keyword_id
   AND cct1.id = cc.subject_id
   AND cct2.id = cc.status_id
-GROUP BY aka_name.id,
-         complete_cast.id,
-         char_name.id,
-         cast_info.id,
-         company_name.imdb_id,
-         movie_companies.id;
+GROUP BY an.name_pcode_nf, cc.id, cct1.id, cct2.id, chn.name_pcode_nf, ci.id;

@@ -1,12 +1,12 @@
 SELECT MIN(cn.name) AS producing_company,
        MIN(lt.link) AS link_type,
        MIN(t.title) AS complete_western_sequel,
-       complete_cast.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_keyword.id,
-       movie_link.id
+       cc.id,
+       cct1.id,
+       cct2.id,
+       cn.name_pcode_nf,
+       ct.id,
+       k.phonetic_code
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      comp_cast_type AS cct2,
@@ -55,9 +55,4 @@ WHERE cct1.kind IN ('cast',
   AND mk.movie_id = cc.movie_id
   AND mc.movie_id = cc.movie_id
   AND mi.movie_id = cc.movie_id
-GROUP BY complete_cast.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_keyword.id,
-         movie_link.id;
+GROUP BY cc.id, cct1.id, cct2.id, cn.name_pcode_nf, ct.id, k.phonetic_code;

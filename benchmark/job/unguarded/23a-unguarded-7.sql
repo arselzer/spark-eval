@@ -2,7 +2,7 @@ SELECT MIN(kt.kind) AS movie_kind,
        MIN(t.title) AS complete_us_internet_movie,
        cc.id,
        cct1.kind,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it1.info,
        k.phonetic_code,
@@ -43,4 +43,4 @@ WHERE cct1.kind = 'complete+verified'
   AND cn.id = mc.company_id
   AND ct.id = mc.company_type_id
   AND cct1.id = cc.status_id
-GROUP BY cc.id, cct1.kind, cn.phonetic_code, ct.kind, it1.info, k.phonetic_code, kt.kind;
+GROUP BY cc.id, cct1.kind, cn.name_pcode_nf, ct.kind, it1.info, k.phonetic_code, kt.kind;

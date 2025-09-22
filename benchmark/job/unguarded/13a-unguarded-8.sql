@@ -16,7 +16,7 @@ FROM company_name AS cn,
      kind_type AS kt,
      movie_companies AS mc,
      movie_info AS mi,
-     movie_info_idx AS miidx,
+     movie_info AS miidx,
      title AS t
 WHERE cn.country_code ='[de]'
   AND ct.kind ='production companies'

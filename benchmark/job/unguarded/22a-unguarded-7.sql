@@ -1,7 +1,7 @@
 SELECT MIN(cn.name) AS movie_company,
        MIN(mi_idx.info) AS rating,
        MIN(t.title) AS western_violent_movie,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it1.info,
        it2.info,
@@ -52,4 +52,4 @@ WHERE cn.country_code != '[us]'
   AND it2.id = mi_idx.info_type_id
   AND ct.id = mc.company_type_id
   AND cn.id = mc.company_id
-GROUP BY cn.phonetic_code, ct.kind, it1.info, it2.info, k.phonetic_code, kt.kind, mc.id;
+GROUP BY cn.name_pcode_nf, ct.kind, it1.info, it2.info, k.phonetic_code, kt.kind, mc.id;

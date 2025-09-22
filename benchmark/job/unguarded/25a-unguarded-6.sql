@@ -2,12 +2,12 @@ SELECT MIN(mi.info) AS movie_budget,
        MIN(mi_idx.info) AS movie_votes,
        MIN(n.name) AS male_writer,
        MIN(t.title) AS violent_movie_title,
-       cast_info.id,
-       movie_info.id,
-       movie_info.id,
-       movie_keyword.id,
-       name.imdb_index,
-       title.imdb_index
+       ci.id,
+       it1.id,
+       it2.id,
+       k.phonetic_code,
+       mi.id,
+       mk.id
 FROM cast_info AS ci,
      info_type AS it1,
      info_type AS it2,
@@ -45,9 +45,4 @@ WHERE ci.note IN ('(writer)',
   AND it1.id = mi.info_type_id
   AND it2.id = mi_idx.info_type_id
   AND k.id = mk.keyword_id
-GROUP BY cast_info.id,
-         movie_info.id,
-         movie_info.id,
-         movie_keyword.id,
-         name.imdb_index,
-         title.imdb_index;
+GROUP BY ci.id, it1.id, it2.id, k.phonetic_code, mi.id, mk.id;

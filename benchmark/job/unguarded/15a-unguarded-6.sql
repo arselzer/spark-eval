@@ -1,11 +1,11 @@
 SELECT MIN(mi.info) AS release_date,
        MIN(t.title) AS internet_movie,
-       aka_title.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_keyword.id,
-       title.imdb_index
+       at.id,
+       cn.name_pcode_nf,
+       ct.id,
+       it1.id,
+       k.phonetic_code,
+       mc.id
 FROM aka_title AS at,
      company_name AS cn,
      company_type AS ct,
@@ -36,9 +36,4 @@ WHERE cn.country_code = '[us]'
   AND it1.id = mi.info_type_id
   AND cn.id = mc.company_id
   AND ct.id = mc.company_type_id
-GROUP BY aka_title.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_keyword.id,
-         title.imdb_index;
+GROUP BY at.id, cn.name_pcode_nf, ct.id, it1.id, k.phonetic_code, mc.id;

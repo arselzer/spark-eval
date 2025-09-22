@@ -4,12 +4,12 @@ SELECT MIN(cn1.name) AS first_company,
        MIN(mi_idx2.info) AS second_rating,
        MIN(t1.title) AS first_movie,
        MIN(t2.title) AS second_movie,
-       company_name1.imdb_id AS cn1_imdb_id,
-       company_name2.imdb_id AS cn2_imdb_id,
-       movie_companies1.id AS mc1_id,
-       movie_companies2.id AS mc2_id,
-       movie_info1.id AS mi_idx1_id,
-       movie_info2.id AS mi_idx2_id
+       cn1.name_pcode_nf,
+       cn2.name_pcode_nf,
+       it1.id,
+       it2.id,
+       kt1.id,
+       kt2.id
 FROM company_name AS cn1,
      company_name AS cn2,
      info_type AS it1,
@@ -53,9 +53,4 @@ WHERE cn1.country_code = '[us]'
   AND ml.linked_movie_id = mi_idx2.movie_id
   AND ml.linked_movie_id = mc2.movie_id
   AND mi_idx2.movie_id = mc2.movie_id
-GROUP BY company_name1.imdb_id,
-         company_name2.imdb_id,
-         movie_companies1.id,
-         movie_companies2.id,
-         movie_info1.id,
-         movie_info2.id;
+GROUP BY cn1.name_pcode_nf, cn2.name_pcode_nf, it1.id, it2.id, kt1.id, kt2.id;

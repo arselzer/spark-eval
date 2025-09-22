@@ -1,7 +1,7 @@
 SELECT MIN(cn.name) AS company_name,
        MIN(lt.link) AS link_type,
        MIN(t.title) AS western_follow_up,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        k.phonetic_code,
        mc.id,
@@ -47,4 +47,4 @@ WHERE cn.country_code !='[pl]'
   AND ml.movie_id = mi.movie_id
   AND mk.movie_id = mi.movie_id
   AND mc.movie_id = mi.movie_id
-GROUP BY cn.phonetic_code, ct.kind, k.phonetic_code, mc.id, mi.id, mk.id, ml.id;
+GROUP BY cn.name_pcode_nf, ct.kind, k.phonetic_code, mc.id, mi.id, mk.id, ml.id;

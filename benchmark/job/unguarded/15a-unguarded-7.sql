@@ -1,7 +1,7 @@
 SELECT MIN(mi.info) AS release_date,
        MIN(t.title) AS internet_movie,
        at.id,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it1.info,
        k.phonetic_code,
@@ -37,4 +37,4 @@ WHERE cn.country_code = '[us]'
   AND it1.id = mi.info_type_id
   AND cn.id = mc.company_id
   AND ct.id = mc.company_type_id
-GROUP BY at.id, cn.phonetic_code, ct.kind, it1.info, k.phonetic_code, mc.id, mi.id;
+GROUP BY at.id, cn.name_pcode_nf, ct.kind, it1.info, k.phonetic_code, mc.id, mi.id;

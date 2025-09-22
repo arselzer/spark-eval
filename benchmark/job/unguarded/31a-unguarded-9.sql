@@ -18,7 +18,7 @@ FROM cast_info AS ci,
      keyword AS k,
      movie_companies AS mc,
      movie_info AS mi,
-     movie_info_idx AS mi_idx,
+     movie_info AS mi_idx,
      movie_keyword AS mk,
      name AS n,
      title AS t

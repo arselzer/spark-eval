@@ -18,7 +18,7 @@ FROM company_name AS cn,
      kind_type AS kt,
      movie_companies AS mc,
      movie_info AS mi,
-     movie_info_idx AS mi_idx,
+     movie_info AS mi_idx,
      movie_keyword AS mk,
      title AS t
 WHERE cn.country_code != '[us]'

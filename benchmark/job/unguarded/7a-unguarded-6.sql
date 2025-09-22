@@ -1,11 +1,6 @@
 SELECT MIN(n.name) AS of_person,
        MIN(t.title) AS biography_movie,
-       aka_name.id,
-       movie_link.id,
-       name.imdb_index,
-       title.imdb_index,
-       title.phonetic_code,
-       person_info.id
+       an.id, ci.id, ml.id, pi.id, t.imdb_index, n.imdb_index
 FROM aka_name AS an,
      cast_info AS ci,
      info_type AS it,
@@ -34,9 +29,4 @@ WHERE an.name LIKE '%a%'
   AND pi.person_id = ci.person_id
   AND an.person_id = ci.person_id
   AND ci.movie_id = ml.linked_movie_id
-GROUP BY aka_name.id,
-         movie_link.id,
-         name.imdb_index,
-         title.imdb_index,
-         title.phonetic_code,
-         person_info.id;
+GROUP BY an.id, ci.id, ml.id, pi.id, t.imdb_index, n.imdb_index;

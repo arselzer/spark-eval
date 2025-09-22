@@ -4,7 +4,7 @@ SELECT MIN(an.name) AS alternative_name,
        an.name_pcode_cf,
        chn.surname_pcode,
        ci.nr_order,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        mc.note,
        n.md5sum,
        rt.role
@@ -37,4 +37,4 @@ WHERE ci.note IN ('(voice)',
   AND chn.id = ci.person_role_id
   AND an.person_id = n.id
   AND an.person_id = ci.person_id
-GROUP BY an.name_pcode_cf, chn.surname_pcode, ci.nr_order, cn.phonetic_code, mc.note, n.md5sum, rt.role;
+GROUP BY an.name_pcode_cf, chn.surname_pcode, ci.nr_order, cn.name_pcode_nf, mc.note, n.md5sum, rt.role;

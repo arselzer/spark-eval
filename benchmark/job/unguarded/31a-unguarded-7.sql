@@ -3,7 +3,7 @@ SELECT MIN(mi.info) AS movie_budget,
        MIN(n.name) AS writer,
        MIN(t.title) AS violent_liongate_movie,
        ci.nr_order,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        it1.info,
        it2.info,
        k.phonetic_code,
@@ -58,4 +58,4 @@ WHERE ci.note IN ('(writer)',
   AND it2.id = mi_idx.info_type_id
   AND k.id = mk.keyword_id
   AND cn.id = mc.company_id
-GROUP BY ci.nr_order, cn.phonetic_code, it1.info, it2.info, k.phonetic_code, mc.id, mi.id;
+GROUP BY ci.nr_order, cn.name_pcode_nf, it1.info, it2.info, k.phonetic_code, mc.id, mi.id;

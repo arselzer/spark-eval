@@ -1,11 +1,11 @@
 SELECT MIN(mi_idx.info) AS rating,
        MIN(t.title) AS northern_dark_movie,
-       keyword.id,
-       movie_info.id,
-       movie_info.id,
-       movie_keyword.id,
-       title.imdb_index,
-       title.phonetic_code
+       it1.id,
+       it2.id,
+       k.phonetic_code,
+       kt.id,
+       mi.id,
+       mk.id
 FROM info_type AS it1,
      info_type AS it2,
      keyword AS k,
@@ -43,9 +43,4 @@ WHERE it1.info = 'countries'
   AND k.id = mk.keyword_id
   AND it1.id = mi.info_type_id
   AND it2.id = mi_idx.info_type_id
-GROUP BY keyword.id,
-         movie_info.id,
-         movie_info.id,
-         movie_keyword.id,
-         title.imdb_index,
-         title.phonetic_code;
+GROUP BY it1.id, it2.id, k.phonetic_code, kt.id, mi.id, mk.id;

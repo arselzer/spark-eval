@@ -1,7 +1,7 @@
 SELECT MIN(cn.name) AS movie_company,
        MIN(mi_idx.info) AS rating,
        MIN(t.title) AS drama_horror_movie,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        ct.kind,
        it1.info,
        it2.info,
@@ -34,4 +34,4 @@ WHERE cn.country_code = '[us]'
   AND mc.movie_id = mi.movie_id
   AND mc.movie_id = mi_idx.movie_id
   AND mi.movie_id = mi_idx.movie_id
-GROUP BY cn.phonetic_code, ct.kind, it1.info, it2.info, mc.id, mi.id, mi_idx.id;
+GROUP BY cn.name_pcode_nf, ct.kind, it1.info, it2.info, mc.id, mi.id, mi_idx.id;

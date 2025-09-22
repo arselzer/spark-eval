@@ -1,12 +1,12 @@
 SELECT MIN(cn.name) AS from_company,
        MIN(lt.link) AS movie_link_type,
        MIN(t.title) AS non_polish_sequel_movie,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_keyword.id,
-       movie_link.id,
-       title.imdb_index,
-       keyword.phonetic_code
+       cn.name_pcode_nf,
+       k.phonetic_code,
+       mc.id,
+       mk.id,
+       ml.id,
+       t.phonetic_code
 FROM company_name AS cn,
      company_type AS ct,
      keyword AS k,
@@ -33,9 +33,4 @@ WHERE cn.country_code !='[pl]'
   AND ml.movie_id = mk.movie_id
   AND ml.movie_id = mc.movie_id
   AND mk.movie_id = mc.movie_id
-GROUP BY company_name.imdb_id,
-         movie_companies.id,
-         movie_keyword.id,
-         movie_link.id,
-         title.imdb_index,
-         keyword.phonetic_code;
+GROUP BY cn.name_pcode_nf, k.phonetic_code, mc.id, mk.id, ml.id, t.phonetic_code;

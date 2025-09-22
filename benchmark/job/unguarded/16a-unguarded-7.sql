@@ -2,7 +2,7 @@ SELECT MIN(an.name) AS cool_actor_pseudonym,
        MIN(t.title) AS series_named_after_char,
        an.name_pcode_cf,
        ci.nr_order,
-       cn.phonetic_code,
+       cn.name_pcode_nf,
        k.phonetic_code,
        mc.id,
        mk.id,
@@ -30,4 +30,4 @@ WHERE cn.country_code ='[us]'
   AND ci.movie_id = mc.movie_id
   AND ci.movie_id = mk.movie_id
   AND mc.movie_id = mk.movie_id
-GROUP BY an.name_pcode_cf, ci.nr_order, cn.phonetic_code, k.phonetic_code, mc.id, mk.id, n.md5sum;
+GROUP BY an.name_pcode_cf, ci.nr_order, cn.name_pcode_nf, k.phonetic_code, mc.id, mk.id, n.md5sum;

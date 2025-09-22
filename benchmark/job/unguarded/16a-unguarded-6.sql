@@ -1,11 +1,11 @@
 SELECT MIN(an.name) AS cool_actor_pseudonym,
        MIN(t.title) AS series_named_after_char,
-       aka_name.id,
-       cast_info.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_keyword.id,
-       name.imdb_index
+       an.name_pcode_nf,
+       ci.id,
+       cn.name_pcode_nf,
+       k.phonetic_code,
+       mc.id,
+       mk.id
 FROM aka_name AS an,
      cast_info AS ci,
      company_name AS cn,
@@ -29,9 +29,4 @@ WHERE cn.country_code ='[us]'
   AND ci.movie_id = mc.movie_id
   AND ci.movie_id = mk.movie_id
   AND mc.movie_id = mk.movie_id
-GROUP BY aka_name.id,
-         cast_info.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_keyword.id,
-         name.imdb_index;
+GROUP BY an.name_pcode_nf, ci.id, cn.name_pcode_nf, k.phonetic_code, mc.id, mk.id;

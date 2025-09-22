@@ -1,12 +1,12 @@
 SELECT MIN(chn.name) AS voiced_char_name,
        MIN(n.name) AS voicing_actress_name,
        MIN(t.title) AS voiced_action_movie_jap_eng,
-       aka_name.id,
-       char_name.id,
-       cast_info.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id
+       an.name_pcode_nf,
+       chn.name_pcode_nf,
+       ci.id,
+       cn.name_pcode_nf,
+       it.id,
+       k.phonetic_code
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,
@@ -53,9 +53,4 @@ WHERE ci.note IN ('(voice)',
   AND ci.person_id = an.person_id
   AND chn.id = ci.person_role_id
   AND k.id = mk.keyword_id
-GROUP BY aka_name.id,
-         char_name.id,
-         cast_info.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id;
+GROUP BY an.name_pcode_nf, chn.name_pcode_nf, ci.id, cn.name_pcode_nf, it.id, k.phonetic_code;

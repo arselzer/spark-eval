@@ -1,11 +1,11 @@
 SELECT MIN(kt.kind) AS movie_kind,
        MIN(t.title) AS complete_us_internet_movie,
-       complete_cast.id,
-       company_name.imdb_id,
-       movie_companies.id,
-       movie_info.id,
-       movie_keyword.id,
-       title.imdb_index
+       cc.id,
+       cct1.id,
+       cn.name_pcode_nf,
+       ct.id,
+       it1.id,
+       k.phonetic_code
 FROM complete_cast AS cc,
      comp_cast_type AS cct1,
      company_name AS cn,
@@ -42,9 +42,4 @@ WHERE cct1.kind = 'complete+verified'
   AND cn.id = mc.company_id
   AND ct.id = mc.company_type_id
   AND cct1.id = cc.status_id
-GROUP BY complete_cast.id,
-         company_name.imdb_id,
-         movie_companies.id,
-         movie_info.id,
-         movie_keyword.id,
-         title.imdb_index;
+GROUP BY cc.id, cct1.id, cn.name_pcode_nf, ct.id, it1.id, k.phonetic_code;
