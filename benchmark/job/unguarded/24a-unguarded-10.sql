@@ -9,8 +9,7 @@ SELECT MIN(chn.name) AS voiced_char_name,
        k.id AS k_id,
        mc.id AS mc_id,
        mi.id AS mi_id,
-       mk.id AS mk_id,
-       n.id AS n_id
+       mk.id AS mk_id
 FROM aka_name AS an,
      char_name AS chn,
      cast_info AS ci,

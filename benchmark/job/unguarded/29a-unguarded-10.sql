@@ -10,8 +10,7 @@ SELECT MIN(chn.name) AS voiced_char,
        cn.id AS cn_id,
        it.id AS it_id,
        it3.id AS it3_id,
-       k.id AS k_id,
-       mc.id AS mc_id
+       k.id AS k_id
 FROM aka_name AS an,
      complete_cast AS cc,
      comp_cast_type AS cct1,
